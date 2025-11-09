@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Meghana</title>
+
+<style>
+    body {
+        margin: 0;
+        overflow: hidden;
+        background: linear-gradient(#87CEFA, #ffffff);
+        height: 100vh;
+        font-family: 'Arial', sans-serif;
+        position: relative;
+    }
+
+    /* CLOUDS */
+    .cloud {
+        position: absolute;
+        top: 0;
+        width: 150px;
+        height: 60px;
+        background: white;
+        border-radius: 50px;
+        opacity: 0.9;
+        animation: moveClouds 20s linear infinite;
+    }
+    .cloud::before, .cloud::after {
+        content: "";
+        position: absolute;
+        background: white;
+        border-radius: 50%;
+    }
+    .cloud::before { width: 80px; height: 80px; top: -30px; left: 10px; }
+    .cloud::after { width: 100px; height: 100px; top: -40px; left: 60px; }
+
+    .cloud:nth-child(1) { left: 5%; animation-duration: 22s; }
+    .cloud:nth-child(2) { left: 40%; animation-duration: 25s; }
+    .cloud:nth-child(3) { left: 75%; animation-duration: 18s; }
+
+    @keyframes moveClouds {
+        0% { transform: translateX(-150px); }
+        100% { transform: translateX(100vw); }
+    }
+
+    /* BALLOONS */
+    .balloon {
+        position: absolute;
+        bottom: -150px;
+        width: 90px;
+        height: 120px;
+        border-radius: 50%;
+        animation: floatUp 10s linear infinite;
+        box-shadow: inset -8px -10px 20px rgba(0,0,0,0.2);
+    }
+
+    .balloon::before {
+        content: "";
+        position: absolute;
+        width: 25px;
+        height: 35px;
+        top: 25px;
+        left: 20px;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.6);
+        filter: blur(2px);
+    }
+
+    .balloon::after {
+        content: "";
+        position: absolute;
+        width: 2px;
+        height: 90px;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        border-left: 2px solid #666;
+        animation: wiggle 2s ease-in-out infinite;
+    }
+
+    .balloon:nth-child(4) { background: #ff4d4d; left: 10%; }
+    .balloon:nth-child(5) { background: #ffcc00; left: 30%; animation-duration: 12s; }
+    .balloon:nth-child(6) { background: #66ff66; left: 50%; animation-duration: 9s; }
+    .balloon:nth-child(7) { background: #3399ff; left: 70%; animation-duration: 11s; }
+    .balloon:nth-child(8) { background: #ff66ff; left: 90%; animation-duration: 13s; }
+
+    @keyframes floatUp {
+        0% { transform: translateY(0); opacity: 1; }
+        100% { transform: translateY(-120vh); opacity: 0.4; }
+    }
+
+    @keyframes wiggle {
+        0%,100% { transform: rotate(3deg); }
+        50% { transform: rotate(-3deg); }
+    }
+
+    /* POSTER STYLE TEXT */
+    .title {
+        position: absolute;
+        top: 40%;
+        width: 100%;
+        text-align: center;
+        font-size: 3.2rem;
+        font-weight: 900;
+        background: linear-gradient(90deg, #ff005c, #ff9900, #00c853, #2979ff, #ff00e6);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0 0 10px rgba(255,255,255,0.9), 0 0 20px rgba(255,255,255,0.6);
+        animation: glow 2s infinite alternate;
+        letter-spacing: 3px;
+    }
+
+    @keyframes glow {
+        0% { text-shadow: 0 0 10px white, 0 0 20px white; }
+        100% { text-shadow: 0 0 20px white, 0 0 40px #ff00e6; }
+    }
+
+    /* FIREWORKS */
+    .firework {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        animation: explode 1.5s infinite;
+    }
+    .firework::before, .firework::after {
+        content: "";
+        position: absolute;
+        width: 5px;
+        height: 15px;
+        border-radius: 50%;
+        background: yellow;
+        top: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .firework::after { transform: translateX(-50%) rotate(90deg); }
+
+    .left-fire { left: 15%; top: 45%; }
+    .right-fire { right: 15%; top: 45%; }
+
+    @keyframes explode {
+        0% { opacity: 0; transform: scale(0.3); }
+        50% { opacity: 1; transform: scale(1.2); }
+        100% { opacity: 0; transform: scale(0.3); }
+    }
+
+    /* TEDDY BEARS */
+    .teddy {
+        position: absolute;
+        width: 70px;
+        height: 90px;
+        background: #c58b50;
+        border-radius: 40px;
+        top: 55%;
+    }
+    
+    .teddy::before, .teddy::after {
+        content: "";
+        position: absolute;
+        width: 35px;
+        height: 35px;
+        background: #c58b50;
+        border-radius: 50%;
+        top: -15px;
+    }
+    .teddy::before { left: -10px; }
+    .teddy::after { right: -10px; }
+
+    .left-teddy { left: 28%; }
+    .right-teddy { right: 28%; }
+
+    /* Teddy face eyes */
+    .teddy span {
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        background: black;
+        border-radius: 50%;
+        top: 25px;
+    }
+    .teddy .eye1 { left: 25px; }
+    .teddy .eye2 { right: 25px; }
+
+    /* RESPONSIVE */
+    @media (max-width: 600px) {
+        .balloon { width: 55px; height: 75px; }
+        .balloon::after { height: 45px; }
+        .title { font-size: 1.6rem; top: 45%; }
+        .firework { transform: scale(0.6); }
+        .teddy { transform: scale(0.7); top: 60%; }
+    }
+
+</style>
+</head>
+<body>
+
+<!-- CLOUDS -->
+<div class="cloud"></div>
+<div class="cloud"></div>
+<div class="cloud"></div>
+
+<!-- BALLOONS -->
+<div class="balloon"></div>
+<div class="balloon"></div>
+<div class="balloon"></div>
+<div class="balloon"></div>
+<div class="balloon"></div>
+
+<!-- TEXT -->
+<div class="title">🎉 HAPPY BIRTHDAY APPIE 🎉</div>
+
+<!-- FIREWORKS -->
+<div class="firework left-fire"></div>
+<div class="firework right-fire"></div>
+
+<!-- TEDDY BEARS -->
+<div class="teddy left-teddy">
+    <span class="eye1"></span><span class="eye2"></span>
+</div>
+<div class="teddy right-teddy">
+    <span class="eye1"></span><span class="eye2"></span>
+</div>
+
+</body>
+</html>
